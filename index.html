@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>N Clock</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="manifest" href="manifest.json">
+</head>
+<body>
+  <div class="wrap">
+    <header class="header">
+      <h1 class="title">N Clock</h1>
+    </header>
+
+    <div class="tabs">
+      <button class="tab active" data-target="clock">時計</button>
+      <button class="tab" data-target="stopwatch">ストップウォッチ</button>
+      <button class="tab" data-target="alarm">アラーム</button>
+      <button class="tab" data-target="settings">設定</button>
+    </div>
+
+    <main class="main">
+      <!-- 時計 -->
+      <section id="clock" class="panel active">
+        <div class="time-display" id="clockDisplay">00:00:00</div>
+        <div class="slider-box">
+          <div class="label-row">
+            <span>1日の速さ</span><span id="speedLabel">24時間</span>
+          </div>
+          <input type="range" id="daySpeed" min="12" max="48" value="24">
+        </div>
+      </section>
+
+      <!-- ストップウォッチ -->
+      <section id="stopwatch" class="panel">
+        <div class="time-display" id="stopwatchDisplay">00:00:00.00</div>
+        <div class="controls">
+          <button id="startStopBtn" class="btn-circle btn-start">スタート</button>
+          <button id="lapBtn" class="btn-rect mono">ラップ</button>
+          <button id="resetBtn" class="btn-rect mono">リセット</button>
+        </div>
+        <div class="lap-list" id="lapList"></div>
+      </section>
+
+      <!-- アラーム -->
+      <section id="alarm" class="panel">
+        <div class="alarm-controls">
+          <input type="time" id="alarmTime" class="time-input">
+          <button id="addAlarmBtn" class="btn-large mono">追加</button>
+        </div>
+        <div class="alarms-container" id="alarmsContainer"></div>
+      </section>
+
+      <!-- 設定 -->
+      <section id="settings" class="panel">
+        <div class="settings-row">
+          <span class="setting-label">秒数表示</span>
+          <label class="switch">
+            <input type="checkbox" id="toggleSeconds" checked>
+            <span class="slider-switch"></span>
+          </label>
+        </div>
+        <div class="settings-row">
+          <span class="setting-label">言語</span>
+          <label class="switch">
+            <input type="checkbox" id="toggleLang">
+            <span class="slider-switch"></span>
+          </label>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">© 2025 N Clock</footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
