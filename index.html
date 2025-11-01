@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>N Clock — NClock</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="manifest" href="manifest.json">
+</head>
+<body>
+  <div class="wrap">
+    <header class="header">
+      <h1 class="title">N Clock</h1>
+    </header>
+
+    <nav class="tabs" role="tablist">
+      <button class="tab active" data-target="clock" id="tabClock">時計</button>
+      <button class="tab" data-target="stopwatch" id="tabStopwatch">ストップウォッチ</button>
+      <button class="tab" data-target="alarm" id="tabAlarm">アラーム</button>
+      <button class="tab" data-target="settings" id="tabSettings">設定</button>
+    </nav>
+
+    <main class="main">
+      <!-- CLOCK -->
+      <section id="clock" class="panel active">
+        <div class="time-display" id="clockDisplay">00:00:00</div>
+        <div class="slider-box">
+          <div class="label-row">
+            <span id="labelSpeedTitle">1日の速さ</span>
+            <span id="speedLabel">24 時間</span>
+          </div>
+          <input id="daySpeed" type="range" min="12" max="48" step="1" value="24" />
+        </div>
+      </section>
+
+      <!-- STOPWATCH -->
+      <section id="stopwatch" class="panel">
+        <div class="time-display" id="swDisplay">00:00.00</div>
+        <div class="controls">
+          <button id="swStartStop" class="btn-circle btn-start">Start</button>
+          <button id="swLap" class="btn-rect mono" disabled>Lap</button>
+          <button id="swReset" class="btn-rect mono" disabled>Reset</button>
+        </div>
+        <div class="lap-list" id="lapList"></div>
+      </section>
+
+      <!-- ALARM -->
+      <section id="alarm" class="panel">
+        <div class="alarm-controls">
+          <input id="alarmTime" type="time" class="time-input">
+          <button id="addAlarmBtn" class="btn-large mono">追加</button>
+        </div>
+        <div class="alarms-container" id="alarmsContainer"></div>
+      </section>
+
+      <!-- SETTINGS -->
+      <section id="settings" class="panel">
+        <div class="settings-row">
+          <span class="setting-label" id="lblShowSeconds">秒数表示</span>
+          <label class="switch">
+            <input id="toggleSeconds" type="checkbox" />
+            <span class="slider-switch"></span>
+          </label>
+        </div>
+        <div class="settings-row">
+          <span class="setting-label" id="lblLang">言語</span>
+          <label class="switch">
+            <input id="toggleLang" type="checkbox" />
+            <span class="slider-switch"></span>
+          </label>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer" id="footerText">設定は自動で保存されます。</footer>
+  </div>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
